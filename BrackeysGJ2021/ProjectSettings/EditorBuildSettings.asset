@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: b9582c4e0f8a98a44b94b2815c644845
   - enabled: 1
-    path: Assets/Scenes/JulioEscena.unity
-    guid: 735fa7f2a7c6f154aa4b4611a705bc5f
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 5d84fcd019b82c847ae5bff6e1e18471
+  - enabled: 1
+    path: Assets/Scenes/Prueba.unity
+    guid: 5aca98b2c059fad4a889d63ca9378292
   m_configObjects: {}
