@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Elements;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -20,14 +21,16 @@ public class PlayerManager : MonoBehaviour
     private Element currentOrb;
     [SerializeField]
     private GameObject[] orbPrefabs;
+    [SerializeField] GameObject[] staffPrefabs;
 
     public bool isDead;
+
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        isDead = false;
+        FireSet();
     }
     void Update()
     {
@@ -38,8 +41,7 @@ public class PlayerManager : MonoBehaviour
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
-
-
+        
         if (currentHealth == 0)
         {
             Die();
@@ -50,14 +52,17 @@ public class PlayerManager : MonoBehaviour
             Revive();
         }
 
+        Debug.Log(currentOrb);
     }
 
     void FixedUpdate()
     {
+
         if (!isDead)
         {
             rb.MovePosition(rb.position + movement * movementSpeed * Time.deltaTime);
         }
+
     }
 
     void TakeDamage(int damage)
@@ -66,7 +71,7 @@ public class PlayerManager : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
     }
-
+    
     void Die()
     {
         isDead = true;
@@ -81,7 +86,7 @@ public class PlayerManager : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.color = Color.white;
         isDead = false;
     }
-
+    
     private void AirSet()
     {
 
@@ -89,7 +94,7 @@ public class PlayerManager : MonoBehaviour
 
     private void FireSet()
     {
-
+        
     }
 
     private void ElectricitySet()
@@ -107,38 +112,60 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void FireAbility(Element element)
     {
-        if (other.tag.Equals("orb"))
+        int orbIndex = (int)element;
+        Instantiate(staffPrefabs[orbIndex], gameObject.transform);
+    }
+
+    
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag.Equals("Staff"))
         {
-            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals("Air") && isHoldingOrb == false)
+            Debug.Log("Tocando Staff");
+            
+            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals(14) && !isHoldingOrb)
             {
+                Debug.Log("Tomar Aire");
                 currentOrb = Element.Air;
                 isHoldingOrb = true;
+                Instantiate(staffPrefabs[0], gameObject.transform);
+                Destroy(other.gameObject);
             }
-            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals("Fire") && isHoldingOrb == false)
+            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals(11) && !isHoldingOrb)
             {
                 currentOrb = Element.Fire;
                 isHoldingOrb = true;
+                Instantiate(staffPrefabs[1], gameObject.transform);
+                Destroy(other.gameObject);
             }
-            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals("Electricity") && isHoldingOrb == false)
+            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals(10) && !isHoldingOrb)
             {
-
+                
                 currentOrb = Element.Electricity;
                 isHoldingOrb = true;
+                Instantiate(staffPrefabs[2], gameObject.transform);
+                Destroy(other.gameObject);
             }
-            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals("Gum") && isHoldingOrb == false)
+            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals(12) && !isHoldingOrb)
             {
-
+                
                 currentOrb = Element.Gum;
                 isHoldingOrb = true;
+                Instantiate(staffPrefabs[3], gameObject.transform);
+                Destroy(other.gameObject);
             }
-            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals("Ice") && isHoldingOrb == false)
+            if (Input.GetKey(KeyCode.E) && other.gameObject.layer.Equals(13) && !isHoldingOrb)
             {
-
+                
                 currentOrb = Element.Ice;
                 isHoldingOrb = true;
+                Instantiate(staffPrefabs[4], gameObject.transform);
+                Destroy(other.gameObject);
             }
+
         }
     }
 }
