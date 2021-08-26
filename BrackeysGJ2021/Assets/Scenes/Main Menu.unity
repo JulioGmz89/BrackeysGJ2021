@@ -810,20 +810,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 376737042}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1775225856}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1775225858}
+        m_MethodName: OpenCredits
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -918,7 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 753884062}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &845740305
@@ -1728,9 +1717,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1775225856}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1775225858}
+        m_MethodName: ClosedCredits
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1738,17 +1727,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 376737042}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1769563614
 MonoBehaviour:
@@ -1838,6 +1816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecdf1dc94d69c04281eeccd3f5ac264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1775225856}
+  creditsMenu: {fileID: 376737042}
+  mainFirstButton: {fileID: 753884062}
+  creditsFirstButton: {fileID: 1769563611}
 --- !u!1 &1786894852
 GameObject:
   m_ObjectHideFlags: 0

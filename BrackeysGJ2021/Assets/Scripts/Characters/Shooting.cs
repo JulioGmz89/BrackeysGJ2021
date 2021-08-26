@@ -12,15 +12,15 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Aim();
-        if (Input.GetButton("Fire") && !gameObject.GetComponent<PlayerManager>().isDead)
+        //JoystickAim();
+        if (Input.GetButton("Fire") || Input.GetMouseButtonDown(0) && !gameObject.GetComponent<PlayerManager>().isDead)
         {
             Shoot();
         }
 
     }
 
-    void Aim()
+    void JoysticAim()
     {
         float HorizontalAxis = Input.GetAxis("AimHorizontal");
         float VerticalAxis = Input.GetAxis("AimVertical");

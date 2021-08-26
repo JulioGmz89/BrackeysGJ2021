@@ -11,6 +11,19 @@ public class SkinManager : MonoBehaviour
     private int selectedSkin = 0;
     public GameObject playerSkin;
 
+    void Update()
+    {
+        if (Input.GetButton("Fire"))
+        {
+            NextOption();
+        }
+        if (Input.GetButton("LB"))
+        {
+            BackOption();
+        }
+
+    }
+
     public void NextOption()
     {
         selectedSkin = selectedSkin + 1;

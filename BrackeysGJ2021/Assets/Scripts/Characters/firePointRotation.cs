@@ -13,6 +13,11 @@ public class firePointRotation : MonoBehaviour
     void Update()
     {
 
+        mouseAim();
+    }
+
+    void mouseAim()
+    {   
         Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLenght;
